@@ -22,17 +22,18 @@ if ($result->num_rows > 0) {
     	if ($row[helped] == "YES"){
     		echo "<li><strike>" . $row["name"] . "</strike></li>";
     	}else{	
-        	echo "<li>" . $row["name"] . ' 
-
+        	?>
+            <li><?php echo $row["name"];?> 
 <form method="post" name="tasktitleform" action="">
     <div class="title">
         <h1 id="message"></h1>
     </div>
-    <input class="tasktitle" id="tasktitle" name="tasktitle" type="hidden" value=" . $row["id"] . " />
-    <input class="save" value="Save" type="button" />
+    <input class="tasktitle" id="tasktitle" name="tasktitle" type="hidden" value='<?php echo $row["id"] ?>' />
+    <input class="save" value="Helped" type="button" />
 </form>
 
-            </li>';
+            </li>
+            <?php
     	}
     }
     ?>
