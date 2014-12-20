@@ -24,14 +24,7 @@ if ($result->num_rows > 0) {
     	}else{	
         	?>
             <li><?php echo $row["name"];?> 
-<form method="post" name="tasktitleform" action="">
-    <div class="title">
-        <h1 id="message"></h1>
-    </div>
-    <input class="tasktitle" id="tasktitle" name="tasktitle" type="hidden" value='<?php echo $row["id"] ?>' />
     <input class="save" value="Helped" type="button" onclick="helped(<?php echo $row["id"] ?>)"/>
-</form>
-
             </li>
             <?php
     	}
