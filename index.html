@@ -1,3 +1,15 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "letmein";
+$dbname = "helpqueue";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
 <html>
  <head>
   <title>Help Queue</title>
@@ -47,18 +59,7 @@ $(document).ready(function(){
     <input class="tasktitle" id="tasktitle" name="tasktitle" type="text" value="Task name..." onfocus="if (this.value == 'Task name...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Task name...';}" />
     <input class="save" value="Save" type="button" />
 </form>
-
-<?php 
-$servername = "localhost";
-$username = "root";
-$password = "letmein";
-$dbname = "helpqueue";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}  
+<?php  
 
 $sql = "SELECT * FROM student ORDER BY id ASC;";
 $result = $conn->query($sql);
