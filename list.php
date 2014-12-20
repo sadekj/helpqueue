@@ -59,13 +59,7 @@ $conn->close();
                     
                     success: function() {
                         alert("HEPED!")
-                        $('.title').html("");
-                        $('#message').html("✓ Logged!")
-                        .hide()
-                     
-                            .fadeIn(1500, function() {
-                            $('#message').append("");
-                            });
+                        location.reload();
                         }
             });
             return false;
