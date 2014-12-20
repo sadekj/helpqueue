@@ -3,7 +3,7 @@
  <head>
   <title>Help Queue</title>
   <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="queue.js"></script>
+<!--  <script type="text/javascript" src="queue.js"></script> -->
  </head>
  <body>
  <form id="queueadd">
@@ -23,7 +23,8 @@ $(document).ready(function(){
 			var current_time = 123;
 			var tasktitle = $("input#tasktitle").val();
 			var dataString = 'current_time='+ current_time + '&tasktitle=' + tasktitle;
-				
+			alert(dataString)
+
 			$.ajax({
       			type: "POST",
       			url: "save.php",
@@ -32,6 +33,15 @@ $(document).ready(function(){
       				success: function() {
       					$('.title').html("");
         				$('#message').html("✓ Logged!")
+        				.hide()
+       				 
+       				 		.fadeIn(1500, function() {
+         			 		$('#message').append("");
+         			 		});
+         				},
+         			error: function() {
+      					$('.title').html("");
+        				$('#message').html("error!")
         				.hide()
        				 
        				 		.fadeIn(1500, function() {

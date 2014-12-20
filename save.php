@@ -1,14 +1,28 @@
-<?php 
-$tasktitle = $_POST['tasktitle'];
-setlocale(LC_TIME, "fi_FI"); 
-date_default_timezone_set("Europe/Helsinki");
-$date = strftime("%Y-%m-%d-%A");
-$timesaved = strftime("%H:%M:%S");
-$elapsedtime = $_POST['current_time'];
-$file = "saved/".$date.".txt";
-$cont = 'time finished: '.$timesaved.' - time elapsed: '.$elapsedtime.' - task name: '.$tasktitle.''. "\n"; 
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "letmein";
+$dbname = "helpqueue";
 
-$f = fopen ($file, 'a+');
-fwrite($f, $cont);
-fclose($f);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+$tasktitle = $_POST['tasktitle'];
+$sql = "INSERT INTO student (id, name, helped)
+VALUES (0, '".$tasktitle."', 'NO')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+
+<?php
+
 ?>
