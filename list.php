@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
         <h1 id="message"></h1>
     </div>
     <input class="tasktitle" id="tasktitle" name="tasktitle" type="hidden" value='<?php echo $row["id"] ?>' />
-    <input class="save" value="Helped" type="button" />
+    <input class="save" value="Helped" type="button" onclick="helped(<?php echo $row["id"] ?>)"/>
 </form>
 
             </li>
@@ -52,14 +52,12 @@ $conn->close();
  </head>
  <body>
 <script type="text/javascript">
-$(document).ready(function(){     
 
-        $('.save').click(function(e){ 
+
+        function helped(tasktitle){
 
             var current_time = 123;
-            var tasktitle = $("input#tasktitle").val();
             var dataString = 'current_time='+ current_time + '&tasktitle=' + tasktitle;
-            alert(dataString)
 
             $.ajax({
                 type: "POST",
@@ -79,8 +77,8 @@ $(document).ready(function(){
             });
             return false;
 
-        });
-    });
+        }
+
 </script>
 </body>
 </html>
