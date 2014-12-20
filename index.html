@@ -20,37 +20,6 @@ if ($conn->connect_error) {
 Ask for help 
 </h1>
 
-<script type="text/javascript">
-$(document).ready(function(){     
-
-		$('.save').click(function(e){ 
-
-			var current_time = 123;
-			var tasktitle = $("input#tasktitle").val();
-			var dataString = 'current_time='+ current_time + '&tasktitle=' + tasktitle;
-			alert(dataString)
-
-			$.ajax({
-      			type: "POST",
-      			url: "save.php",
-      			data: dataString,
-      				
-      				success: function() {
-      					alert("HELP IS ON THE WAY!")
-      					$('.title').html("");
-        				$('#message').html("✓ Logged!")
-        				.hide()
-       				 
-       				 		.fadeIn(1500, function() {
-         			 		$('#message').append("");
-         			 		});
-         				}
-			});
-			return false;
-
-	    });
-	});
-</script>
 
 <form method="post" name="tasktitleform" action="">
     <div class="title">
