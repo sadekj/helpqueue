@@ -17,7 +17,6 @@ $(document).ready(function(){
 			var current_time = 123;
 			var tasktitle = $("input#tasktitle").val();
 			var dataString = 'current_time='+ current_time + '&tasktitle=' + tasktitle;
-			alert(dataString)
 
 			$.ajax({
       			type: "POST",

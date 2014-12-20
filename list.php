@@ -67,7 +67,7 @@ $(document).ready(function(){
                 data: dataString,
                     
                     success: function() {
-                        alert("HELP IS ON THE WAY!")
+                        alert("HEPED!")
                         $('.title').html("");
                         $('#message').html("✓ Logged!")
                         .hide()
