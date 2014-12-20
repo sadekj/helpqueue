@@ -44,6 +44,12 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+<html>
+ <head>
+  <title>Help Queue</title>
+  <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+ </head>
+ <body>
 <script type="text/javascript">
 $(document).ready(function(){     
 
@@ -75,3 +81,5 @@ $(document).ready(function(){
         });
     });
 </script>
+</body>
+</html>
